@@ -1,31 +1,57 @@
 package com.inprog.blueclip;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class SelectedStore extends Activity {
 
+	private ListView storeDeals ;
+	private ArrayAdapter<String> listAdapter ;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_selected_store);
 		
+		storeDeals = (ListView) findViewById( R.id.store_deals);
+		
+		String[] deals = new String[] { "20% Off", "Buy One Get One Free", "Free Shipping", "Bonus Gift"};  
+	    ArrayList<String> dealList = new ArrayList<String>();
+	    dealList.addAll( Arrays.asList(deals) );
+	    
+	    listAdapter = new ArrayAdapter<String>(this, R.layout.simplerow, dealList);
+	    
+	    storeDeals.setAdapter( listAdapter ); 
+		
 		// Get the message from the intent
 	    Intent intent = getIntent();
 	    String message = intent.getStringExtra(DisplayLocalStores.EXTRA_MESSAGE);
 
-	    // Create the text view
-	    TextView textView = new TextView(this);
-	    textView.setTextSize(40);
-	    textView.setText(message);
-
-	    // Set the text view as the activity layout
-	    setContentView(textView);
+	    //find the text view
+//	    TextView textView = (TextView) findViewById(R.id.store_name);
+//	    textView.setTextSize(40);
+//	    textView.setText(message);
+	    
+	    setTitle(message);
+	    
+	    
+//	    // Create the text view
+//	    TextView textView = new TextView(this);
+//	    textView.setTextSize(40);
+//	    textView.setText(message);
+//
+//	    // Set the text view as the activity layout
+//	    setContentView(textView);
 		
 		// Show the Up button in the action bar.
 		setupActionBar();

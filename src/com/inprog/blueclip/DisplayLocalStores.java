@@ -62,12 +62,12 @@ public class DisplayLocalStores extends Activity {
              String  itemValue    = (String) mainListView.getItemAtPosition(position);
                 
               // Show Alert 
-              Toast.makeText(getApplicationContext(),"Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG).show();
+//              Toast.makeText(getApplicationContext(),"Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG).show();
               
-              	Intent intent = new Intent(DisplayLocalStores.this,SelectedStore.class);
-      			String message = itemValue;
-      			intent.putExtra(EXTRA_MESSAGE, message);
-      			startActivity(intent);
+          	Intent intent = new Intent(DisplayLocalStores.this,SelectedStore.class);
+  			String message = itemValue;
+  			intent.putExtra(EXTRA_MESSAGE, message);
+  			startActivity(intent);
            
             }
 

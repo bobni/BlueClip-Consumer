@@ -8,5 +8,6 @@
     <string name="scan_button">Press to Scan</string>
     <string name="title_activity_display_local_stores">DisplayLocalStores</string>
     <string name="title_activity_selected_store">SelectedStore</string>
+    <string name="store_chosen">Welcome to </string>
 
 </resources>
